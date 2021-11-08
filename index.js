@@ -2,11 +2,13 @@
 // Iteration 1 - `for...of` loop
 // ***************************************************************************
 
+let usersArray = require('./data')
 const getFirstNames = arr => {
   const userFirstNames = [];
   for (let user of arr) {
-    // Your code goes here ...
+    userFirstNames.push(user.firstName)
   }
+  console.log(userFirstNames)
 };
 
 getFirstNames(usersArray);
@@ -17,8 +19,13 @@ getFirstNames(usersArray);
 // Iteration 2 - `for...of` loop and ES6 string literals `${}`
 // ***************************************************************************
 
-const getFullNames = arr => {
-  // Your code goes here ...
+
+const getFullNames = (arr) => {
+  const userFullNames = [];
+  for (let user in arr) {
+    userFullNames.push(`${arr[user]["firstName"]} ${arr[user]["lastName"]}`);
+  }
+  console.log(userFullNames);
 };
 
 getFullNames(usersArray);
@@ -31,7 +38,11 @@ getFullNames(usersArray);
 // ***************************************************************************
 
 const getUsersCreditDetails = arr => {
-  // Your code goes here ...
+  const getUsersCreditDetails = []
+  for (let user of arr){
+    let {firstName,lastName,balance} = user;
+    getUsersCreditDetails.push(firstName, lastname, balance)
+  }
 };
 
 getUsersCreditDetails(usersArray);
@@ -49,7 +60,21 @@ getUsersCreditDetails(usersArray);
 // ***************************************************************************
 
 const genderView = users => {
-  // Your code goes here ...
+  const femaleUsers = []
+  const maleUsers = []
+
+  users.filter((user) => {
+    user.gender;
+  });
+
+  if(users.gender === "female") {
+    femaleUsers.push(`${users.firstName} ${users.lastName}`)  
+  }
+  else if(users.gender === "male") {
+    maleUsers.push(`${users.firstName} ${users.lastName}`)  
+  }
+
+  console.log({femaleUsers,maleUsers})
 };
 
 genderView(usersArray);
@@ -64,6 +89,18 @@ genderView(usersArray);
 // ***************************************************************************
 
 const data = genderView(usersArray);
+let femaleCount = 0
+let maleCount =0
+
+for (let index = 0; index < femaleUsers.length; index++) {
+  femaleCount ++
+}
+
+for (let index = 0; index < array.maleUsers; index++) {
+  const element = array[index];
+  maleCount ++
+  
+}
 
 const genderCount = data => {
   // Your code goes here ...
@@ -79,9 +116,15 @@ genderCount(data);
 // ***************************************************************************
 
 const promo20 = users => {
-  // Your code goes here ...
+  users.map((user) => {
+    if (Number(user.baance.slice(0,1)) > 20000) {
+      return `Dear Howard, since your balance is $21,307.75, you are eligible to apply for this awesome credit card.
+      `
+    }
+  })
 };
 
+console.console.log();
 // expected output:
 // Dear Howard, since your balance is $21,307.75, you are eligible to apply for this awesome credit card.
 // Dear Rachelle, since your balance is $35,121.49, you are eligible to apply for this awesome credit card.

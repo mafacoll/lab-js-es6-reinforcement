@@ -56,3 +56,6 @@ const usersArray = [
     gender: 'female'
   }
 ];
+
+module.exports=usersArray
+
